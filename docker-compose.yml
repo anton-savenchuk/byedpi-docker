@@ -4,7 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: byedpi_app
-    command: --split 1 --oob 1 --fake 1 --ttl 1 -A torst --tlsrec 1+sni --debug 1 --auto=none
+    volumes:
+      - ./list.txt:/list.txt
+    command: --hosts list.txt --split 1 --oob 1 --fake 1 --ttl 1 -A torst --tlsrec 1+sni --debug 1 --auto=none
     ports:
       - 1080:1080/tcp
     restart: unless-stopped
