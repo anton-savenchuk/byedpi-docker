@@ -1,3 +1,5 @@
+The program is a local SOCKS proxy server.
+
 [ByeDPI project](https://github.com/hufrea/byedpi)
 
 ## Instructions
