@@ -6,7 +6,7 @@ services:
     container_name: byedpi_app
     volumes:
       - ./list.txt:/list.txt
-    command: --hosts list.txt --split 1 --oob 1 --fake 1 --ttl 1 -A torst --tlsrec 1+sni --debug 1 --auto=none
+    command: --host list.txt -s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An
     ports:
       - 1080:1080/tcp
     restart: unless-stopped
