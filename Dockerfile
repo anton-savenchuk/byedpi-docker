@@ -1,21 +1,21 @@
 FROM alpine:latest AS build
 
-        RUN apk update && apk add --no-cache \
-            git \
-            build-base \
-            openssl-dev \
-            libpcap-dev \
-            linux-headers \
-            musl-dev
+RUN apk update && apk add --no-cache \
+    git \
+    build-base \
+    openssl-dev \
+    libpcap-dev \
+    linux-headers \
+    musl-dev
 
-        RUN git clone https://github.com/hufrea/byedpi /opt/byedpi
+RUN git clone https://github.com/hufrea/byedpi /opt/byedpi
 
-        WORKDIR /opt/byedpi
-        RUN make
-        
-        FROM alpine:latest
+WORKDIR /opt/byedpi
+RUN make
 
-        COPY --from=build /opt /opt
-        EXPOSE 1080
+FROM alpine:latest
 
-        ENTRYPOINT ["/opt/byedpi/ciadpi"]
+COPY --from=build /opt /opt
+EXPOSE 1080
+
+ENTRYPOINT ["/opt/byedpi/ciadpi"]

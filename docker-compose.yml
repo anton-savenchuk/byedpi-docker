@@ -6,7 +6,7 @@ services:
     container_name: byedpi_app
     volumes:
       - ./list.txt:/list.txt
-    command: --host list.txt -s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An
+    command: --hosts list.txt -s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An
     ports:
-      - 1080:1080/tcp
+      - 1080:1080
     restart: unless-stopped
