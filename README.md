@@ -13,7 +13,7 @@ cd byedpi-docker
 
 ```bash
 docker build . -t byedpi
-docker run --rm -p 127.0.0.1:1080:1080 --name byedpi byedpi --split 1 --oob 1 --fake 1 --ttl 1 -A torst --tlsrec 1+sni --debug 1 --auto=none
+docker run --rm -p 127.0.0.1:1080:1080 --volume ./list.txt:/list.txt --name byedpi byedpi --hosts list.txt -s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An
 ```
 
 **Docker compose**
